@@ -1,28 +1,27 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras/1.6.61">
 	<PropertyGroup>
-		<TargetFrameworks>netstandard1.0;netstandard2.0;MonoAndroid71;MonoAndroid80;MonoAndroid81;Xamarin.iOS10;uap10.0.16299;Tizen40</TargetFrameworks>
+		<TargetFrameworks>netstandard1.0;netstandard2.0;MonoAndroid71;MonoAndroid80;MonoAndroid81</TargetFrameworks>
 		<AssemblyName>Plugin.Media</AssemblyName>
 		<RootNamespace>Plugin.Media</RootNamespace>
-		<Product>$(AssemblyName) ($(TargetFramework))</Product>
+		<Product>Birdie.MediaPlugin (netstandard1.0)</Product>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
 		<Version>1.0.0.0</Version>
-		<Authors>James Montemagno</Authors>
-		<PackageId>Xam.Plugin.Media</PackageId>
+		<Authors>James Montemagno, Ivan Toledo</Authors>
+		<PackageId>Birdie.MediaPlugin</PackageId>
 		<PackOnBuild>true</PackOnBuild>
 		<PackageIconUrl>http://www.refractored.com/images/plugin_icon_media.png</PackageIconUrl>
 		<PackageLicenseUrl>https://github.com/jamesmontemagno/MediaPlugin/blob/master/LICENSE</PackageLicenseUrl>
 		<Owners>JamesMontemagno</Owners>
 		<PackageProjectUrl>https://github.com/jamesmontemagno/MediaPlugin</PackageProjectUrl>
 		<Summary>Take or pick photos and videos from a cross platform API.</Summary>
-		<PackageTags>xamarin, pcl, xam.pcl, media, photo, video, plugin, plugin for xamarin, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</PackageTags>
+		<PackageTags>xamarin, pcl, xam.pcl, media, photo, video, plugin, plugin for xamarin, android, xamarin.forms</PackageTags>
 		<Title>Media Plugin for Xamarin and Windows</Title>
-		<Description>
-			Take or pick photos and videos from a cross platform API.
+		<Description>Take or pick photos and videos from a cross platform API. Fork of James Montemagno's Media Plugin with a few fixes.
 		</Description>
 		<Copyright>Copyright 2018</Copyright>
 		<RepositoryUrl>https://github.com/jamesmontemagno/MediaPlugin</RepositoryUrl>
-		<PackageReleaseNotes>See: https://github.com/jamesmontemagno/MediaPlugin </PackageReleaseNotes>
+		<PackageReleaseNotes>See: https://github.com/jamesmontemagno/MediaPlugin</PackageReleaseNotes>
 
 		<NeutralLanguage>en</NeutralLanguage>
 		<LangVersion>default</LangVersion>
@@ -30,6 +29,8 @@
 
 		<GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
 		<DefineConstants>$(DefineConstants);</DefineConstants>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Company>Birdie</Company>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
 		<DebugType>full</DebugType>
@@ -57,9 +58,9 @@
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
 	</ItemGroup>
 
-	<ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0')) ">
+	<!--<ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0')) ">
 		<Compile Include="**\UWP\*.cs" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
 		<Compile Include="**\Android\*.cs" />
@@ -73,10 +74,10 @@
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid71')) ">
 		<PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="25.4.0.2" />
 	</ItemGroup>
-	<ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
+	<!--<ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
 		<Compile Include="**\iOS\*.cs" />
 	</ItemGroup>
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('Tizen')) ">
 		<Compile Include="**\Tizen\*.cs" />
-	</ItemGroup>
+	</ItemGroup>-->
 </Project>
